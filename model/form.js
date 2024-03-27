@@ -8,8 +8,14 @@ const formSchema= new mongoose.Schema({
         // required:true
 
     },
-    type:{
+    comment:{
         type:String
+    },
+    review:{
+        type:String
+    },
+    ratings:{
+        type:Number
     },
     img:{
         type:String,
@@ -20,7 +26,7 @@ const formSchema= new mongoose.Schema({
 
 
 // mongoose collection name specfied//created the new collection|table
-const userForm= new mongoose.model("customerReview",formSchema)
+const userForm= new mongoose.model("customerRev",formSchema)
 
 //export the schema that will be import in the main.js file
 module.exports=userForm;

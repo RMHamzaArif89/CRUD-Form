@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         .container{
             width: 100%;
             min-height: 100vh;
@@ -13,16 +18,19 @@
             flex-wrap: wrap;
             gap: 2%;
             justify-content: space-around;
+            background:linear-gradient(120deg,blueviolet,lightblue);
         }
         .card{
-            width: 240px;
-            height: 300px;
+            width: 320px;
+            height: 400px;
             margin: 2% 0;
             background: linear-gradient(145deg,lightblue,lightgreen);
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: space-between;
+            border-radius: 22px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         .card .img{
             width: 100%;
@@ -30,32 +38,33 @@
 
         }
         .name{
-            font-size: 2.4rem;
+            font-size: 1.6rem;
             color: blueviolet;
             font-family: serif;
             font-weight: bold;
         }
         .review{
-            font-size: 1.3rem;
-            color: black;
+            font-size: 1rem;
+            color:gray;
             font-family: sans-serif;
         }
         .ratting{
-            font-size: 2rem;
+            font-size: 1.5rem;
             color:red;
             font-family: serif;
             font-weight: bolder;
             text-align: center;
         }
         .detail{
-            padding: 15px;
+            padding: 8px;
             background: blueviolet;
             border-radius: 8px;
             text-align: center;
             color: wheat;
             border: 1px solid white;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-family: serif;
+            cursor: pointer;
         }
 
     </style>
@@ -64,10 +73,10 @@
     <div class="container">
       <%Data.forEach((val)=>{%>
         <div class="card">
-            <img src="/upload/<%=val.img%>" alt="" class="img">
+            <img src="/<%=val.img%>" alt="" class="img">
             <div class="name"><%=val.name%></div>
             <div class="review"><%=val.review%></div>
-            <div class="ratting">10/<%=val.rating%></div>
+            <div class="ratting">Ratting: 10/<%=val.ratings%></div>
             <div class="detail">Details</div>
             
         </div>

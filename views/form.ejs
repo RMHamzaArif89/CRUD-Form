@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="con">
-    <form action="/formData" method="post" class="w-50 text-light">
+    <form action="/formData" method="post" class="w-50 text-light"  enctype="multipart/form-data">
         <div class="mb-3">
           <label for="name" class="form-label">Enter Name</label>
           <input type="text"  name="name" class="form-control" id="name" aria-describedby="emailHelp">
@@ -37,10 +37,12 @@
           <label for="ratings" class="form-label">Give Rating out of 10</label>
           <input type="number" name="ratings" class="form-control" id="ratings">
         </div>
+      
         <div class="mb-3">
-          <label for="img" class="form-label">Enter your img</label>
-          <input type="file"  name="img" class="form-control" id="img">
-        </div>   
+          <label for="inputZip" class="form-label">Image</label>
+          <input type="file"  accept="image/*" name="img" id="" class="form-control">
+
+      </div>   
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
