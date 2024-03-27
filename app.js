@@ -22,9 +22,11 @@ require('./db/conn')
 const userForm=require('./model/form')
 
 
-app.get('/',(req,res)=>{
-    res.render('index')
-})
+//us the middle ware router user
+const user=require('./routes/user')
+
+app.use(user)
+
 
 
 app.listen(3000,()=>{
