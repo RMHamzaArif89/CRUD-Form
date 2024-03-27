@@ -16,6 +16,12 @@ app.set('view engine','ejs')
 app.set('views','views')
 
 
+//require the mongodbConnection
+require('./db/conn')
+
+const userForm=require('./model/form')
+
+
 app.get('/',(req,res)=>{
     res.render('index')
 })
