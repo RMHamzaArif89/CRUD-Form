@@ -9,7 +9,7 @@ const userSchema=require('../model/form')
 
 let postFormData=async(req,res)=>{
  
-    const userData=  new userSchema({
+    const userData=new userSchema({
         name:req.body.name,
         comment:req.body.comment,
         review:req.body.review,
@@ -26,7 +26,6 @@ let postFormData=async(req,res)=>{
      res.send(err)
     }
 }
-
 
 
 let getFormRequest=(req,res)=>{

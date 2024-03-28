@@ -41,26 +41,24 @@ router.get('/form',conUser.getFormRequest)
 
 
 
-router.post('/formData',upload.single('img'),async(req,res)=>{
+router.post('/formData',upload.single('img'),conUser.postFormData)
+
+
+router.get('/detail/:id',async(req,res)=>{
+  let _id=req.params.id
  
-    const userData=new userSchema({
-        name:req.body.name,
-        comment:req.body.comment,
-        review:req.body.review,
-        ratings:req.body.ratings,
-        img:req.file.filename
-    })
-    try{
-        
-        await userSchema.create(userData)
-        res.redirect('/')
-    }
-   
-    catch(err){
-     res.send(err)
-    }
-}
-)
+  let Data= await userSchema.findById({_id})
+  res.render('userDetail',{Data})
+})
+
+
+
+router.get('/delete/:id',async(req,res)=>{
+  let _id=req.params.id
+  console.log(_id)
+  let Data= await userSchema.findOneAndDelete({_id})
+  res.redirect('/')
+})
 
 
 

@@ -13,12 +13,26 @@
         .container{
             width: 100%;
             min-height: 100vh;
-            max-width: auto;
+            max-height: auto;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+            background:linear-gradient(120deg,blueviolet,lightblue);
+        }
+        .h1{
+            font-size: 3.5rem;
+            color: red;
+            font-weight: bolder;
+            font-family: serif;
+            text-align: center;
+        }
+        .card-con{
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 2%;
             justify-content: space-around;
-            background:linear-gradient(120deg,blueviolet,lightblue);
         }
         .card{
             width: 320px;
@@ -71,18 +85,21 @@
 </head>
 <body>
     <div class="container">
-      <%Data.forEach((val)=>{%>
-        <div class="card">
-            <img src="/<%=val.img%>" alt="" class="img">
-            <div class="name"><%=val.name%></div>
-            <div class="review"><%=val.review%></div>
-            <div class="ratting">Ratting: 10/<%=val.ratings%></div>
-            <div class="detail">Details</div>
-            
-        </div>
-
-
-      <%})%>
+        <h1 class="h1">Customer Feedback</h1>
+      <div class="card-con">
+        <%Data.forEach((val)=>{%>
+            <div class="card">
+                <img src="/<%=val.img%>" alt="" class="img">
+                <div class="name"><%=val.name%></div>
+                <div class="review"><%=val.review%></div>
+                <div class="ratting">Ratting: 10/<%=val.ratings%></div>
+                <div class="detail"><a href="/detail/<%=val._id%>">Details</a></div>
+                
+            </div>
+    
+    
+          <%})%>
+      </div>
     </div>
 </body>
 </html>
