@@ -60,6 +60,18 @@ router.get('/delete/:id',async(req,res)=>{
   res.redirect('/')
 })
 
+router.get('/edit/:id',async(req,res)=>{
+  let _id=req.params.id
+  console.log(_id)
+  let value= await userSchema.findById({_id})
+  res.render('form',{value})
+})
+router.post('/formData/:id',async(req,res)=>{
+  let _id=req.params.id
+  let Data=await userSchema.findOneAndUpdate({_id})
+  res.redirect('/')
+})
+
 
 
 
