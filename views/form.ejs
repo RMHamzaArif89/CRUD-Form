@@ -23,24 +23,24 @@
     <form action="/formData/<%=value._id%>" method="post" class="w-50 text-light"  enctype="multipart/form-data">
         <div class="mb-3">
           <label for="name" class="form-label">Enter Name</label>
-          <input type="text" value="<%=value.name%>" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+          <input type="text"  value="<%=value.name%>" name="name" class="form-control" id="name" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="comment" class="form-label">Comment</label>
-          <input type="text" value="<%=value.comment%>" name="comment" class="form-control" id="comment">
+          <input type="text"  value="<%=value.comment%>" name="comment" class="form-control" id="comment">
         </div>
         <div class="mb-3">
           <label for="review" class="form-label">Review</label>
-          <input type="text" value="<%=value.review%>" name="review" class="form-control" id="review">
+          <input type="text"  value="<%=value.review%>" name="review" class="form-control" id="review">
         </div>
         <div class="mb-3">
           <label for="ratings" class="form-label">Give Rating out of 10</label>
-          <input type="number" value="<%=value.ratings%>"  name="ratings" class="form-control" id="ratings">
+          <input type="number"value="<%=value.ratings%>"  name="ratings" class="form-control" id="ratings">
         </div>
       
         <div class="mb-3">
           <label for="inputZip" class="form-label">Image</label>
-          <input type="file" value="<%=value.img%>" accept="image/*" name="img" id="" class="form-control">
+          <input type="file"  value="<%=value.img%>" accept="image/*" name="img" id="" class="form-control">
 
       </div>   
         <button type="submit" class="btn btn-primary">Submit</button>

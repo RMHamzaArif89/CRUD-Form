@@ -17,6 +17,7 @@ let postFormData=async(req,res)=>{
         img:req.file.filename
     })
     try{
+       
         
         await userSchema.create(userData)
         res.redirect('/')
@@ -29,7 +30,8 @@ let postFormData=async(req,res)=>{
 
 
 let getFormRequest=(req,res)=>{
-    res.render('form')
+   let value={}
+    res.render('form',{value})
 }
 
 
