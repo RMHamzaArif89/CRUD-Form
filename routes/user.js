@@ -2,11 +2,18 @@ const express=require('express')
 const router=express.Router()
 const multer=require('multer')
 const conUser=require('../controller/user')
+const bodyParser=require('body-parser')
 const path=require('path')
 
 //user schema
 const userSchema=require('../model/form')
 router.use(express.static('upload'))
+
+
+
+router.use(express.urlencoded({extended:true}))
+router.use(express.json())
+
 
 
 
@@ -63,17 +70,42 @@ router.get('/delete/:id',async(req,res)=>{
 
 
 router.get('/edit/:id',async(req,res)=>{
+ try{
   let _id=req.params.id
-  console.log(_id)
-  let value= await userSchema.findById({_id})
+
+  let value= await userSchema.findOne({_id})
+  
+
   res.render('form',{value})
+
+ }
+ catch(err){
+  res.status(400).send(err)
+ }
 })
-router.post('/formData/:id',async(req,res)=>{
 
+
+
+
+
+
+
+
+
+router.post('/formData/:id',upload.single('img'),async(req,res)=>{
+
+try{
   let _id=req.params.id
-
- let update=await userSchema.findByIdAndUpdate({_id},req.body,{new:true,useFindAndModify:false})
-  res.redirect('/')
+  // console.log('try')
+  console.log(req.body.comment)
+ console.log(req.body)
+  let update=await userSchema.updateOne({_id},req.body,{new:true})
+  // userSchema.save()
+   res.redirect('/')
+}
+catch(err){
+  res.status(400).send(err)
+}
 })
 
 

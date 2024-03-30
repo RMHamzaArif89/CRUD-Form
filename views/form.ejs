@@ -21,6 +21,7 @@
 <body>
   <div class="con">
     <form action="/formData/<%=value._id%>" method="post" class="w-50 text-light"  enctype="multipart/form-data">
+      <input type="hidden" name="hidden" value="<%=value._id%>">
         <div class="mb-3">
           <label for="name" class="form-label">Enter Name</label>
           <input type="text"  value="<%=value.name%>" name="name" class="form-control" id="name" aria-describedby="emailHelp">
@@ -39,7 +40,7 @@
         </div>
       
         <div class="mb-3">
-          <label for="inputZip" class="form-label">Image</label>
+          <label for="inputZip" class="form-label">Select Image</label>
           <input type="file"  value="<%=value.img%>" accept="image/*" name="img" id="" class="form-control">
 
       </div>   
